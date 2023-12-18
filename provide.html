@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Contribution Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1>Web Application</h1>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="blogs.html">Blogs</a>
+    <a href="products.html">Products</a>
+    <a href="login.html">Login</a>
+</nav>
+
+<section>
+    <h2>Contribute Content</h2>
+    <form action="submit_content.php" method="post" onsubmit="return validateForm()">
+        <label for="contentTitle">Title:</label>
+        <input type="text" id="contentTitle" name="contentTitle" required>
+
+        <label for="contentType">Content Type:</label>
+        <select id="contentType" name="contentType" required>
+            <option value="blog">Blog</option>
+            <option value="product">Product</option>
+        </select>
+
+        <label for="contentBody">Content Body:</label>
+        <textarea id="contentBody" name="contentBody" rows="4" required></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+</section>
+
+<script>
+    function validateForm() {
+        var title = document.getElementById("contentTitle").value;
+        var type = document.getElementById("contentType").value;
+        var body = document.getElementById("contentBody").value;
+
+        if (title === "" || type === "" || body === "") {
+            alert("All fields must be filled out");
+            return false;
+        }
+
+        return true;
+    }
+</script>
+
+</body>
+</html>
+
